@@ -1,10 +1,3 @@
-/*
- * Copyright (c) 2018 Nordic Semiconductor ASA
- * Copyright (c) 2017 Linaro Limited
- *
- * SPDX-License-Identifier: Apache-2.0
- */
-
 /dts-v1/;
 #include <nordic/nrf52840_qiaa.dtsi>
 #include "pink_panda-pinctrl.dtsi"
@@ -24,27 +17,6 @@
 		zephyr,code-partition = &slot0_partition;
 		zephyr,ieee802154 = &ieee802154;
 	};
-
-	/* These aliases are provided for compatibility with samples */
-	aliases {
-		watchdog0 = &wdt0;
-	};
-};
-
-&adc {
-	status = "okay";
-};
-
-&gpiote {
-	status = "okay";
-};
-
-&gpio0 {
-	status = "okay";
-};
-
-&gpio1 {
-	status = "okay";
 };
 
 &uart0 {
@@ -53,51 +25,6 @@
 	current-speed = <115200>;
 	pinctrl-0 = <&uart0_default>;
 	pinctrl-1 = <&uart0_sleep>;
-	pinctrl-names = "default", "sleep";
-};
-
-&i2c0 {
-	compatible = "nordic,nrf-twi";
-	status = "okay";
-	pinctrl-0 = <&i2c0_default>;
-	pinctrl-1 = <&i2c0_sleep>;
-	pinctrl-names = "default", "sleep";
-};
-
-&i2c1 {
-	compatible = "nordic,nrf-twi";
-	/* Cannot be used together with spi1. */
-	/* status = "okay"; */
-	pinctrl-0 = <&i2c1_default>;
-	pinctrl-1 = <&i2c1_sleep>;
-	pinctrl-names = "default", "sleep";
-};
-
-&pwm0 {
-	status = "okay";
-	pinctrl-0 = <&pwm0_default>;
-	pinctrl-1 = <&pwm0_sleep>;
-	pinctrl-names = "default", "sleep";
-};
-
-/*
- * By default, not adding all available SPI instances (spi2, spi3) due to
- * limited GPIOs available on dongle board.
- */
-&spi0 {
-	compatible = "nordic,nrf-spi";
-	/* Cannot be used together with i2c0. */
-	/* status = "okay"; */
-	pinctrl-0 = <&spi0_default>;
-	pinctrl-1 = <&spi0_sleep>;
-	pinctrl-names = "default", "sleep";
-};
-
-&spi1 {
-	compatible = "nordic,nrf-spi";
-	status = "okay";
-	pinctrl-0 = <&spi1_default>;
-	pinctrl-1 = <&spi1_sleep>;
 	pinctrl-names = "default", "sleep";
 };
 
@@ -111,8 +38,3 @@
  * fstab-debugger	-to use an external debugger, w/o the nRF5 bootloader
  */
 #include "fstab-debugger.dts"
-
-zephyr_udc0: &usbd {
-	compatible = "nordic,nrf-usbd";
-	status = "okay";
-};
