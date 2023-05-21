@@ -28,10 +28,6 @@
 	pinctrl-names = "default", "sleep";
 };
 
-&ieee802154 {
-	status = "okay";
-};
-
 /* Include flash partition table.
  * Two partition tables are available:
  * fstab-stock		-compatible with Nordic nRF5 bootloader, default
