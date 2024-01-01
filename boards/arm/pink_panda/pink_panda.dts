@@ -19,6 +19,11 @@
 	};
 };
 
+&uicr {
+	gpio-as-nreset;
+	nfct-pins-as-gpios;
+};
+
 &uart0 {
 	compatible = "nordic,nrf-uarte";
 	status = "okay";
