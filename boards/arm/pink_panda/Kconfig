@@ -1,8 +1,5 @@
 # Pink Panda board configuration
 
-# Copyright (c) 2022 François Gervais
-# SPDX-License-Identifier: Apache-2.0
-
 if BOARD_PINK_PANDA
 
 config BOARD_ENABLE_DCDC
@@ -21,5 +18,9 @@ config BOARD_HAS_NRF5_BOOTLOADER
 	help
 	  If selected, applications are linked so that they can be loaded by Nordic
 	  nRF5 bootloader.
+
+config BOARD_SERIAL_BACKEND_CDC_ACM
+	bool "USB CDC"
+	default n
 
 endif # BOARD_PINK_PANDA
