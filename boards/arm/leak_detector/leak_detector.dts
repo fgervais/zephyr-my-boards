@@ -38,6 +38,11 @@
 	pinctrl-names = "default", "sleep";
 };
 
+&comp {
+	compatible = "nordic,nrf-lpcomp";
+	status = "okay";
+};
+
 /* Include flash partition table.
  * Two partition tables are available:
  * fstab-stock		-compatible with Nordic nRF5 bootloader, default
