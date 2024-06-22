@@ -1,0 +1,21 @@
+identifier: leak_detector
+name: Leak-Detector
+type: mcu
+arch: arm
+ram: 256
+flash: 1024
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+supported:
+  - adc
+  - usb_device
+  - ble
+  - pwm
+  - spi
+  - watchdog
+  - counter
+  - netif:openthread
+  - gpio
+vendor: nordic
