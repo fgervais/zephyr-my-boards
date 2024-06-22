@@ -3,7 +3,7 @@
 #include "leak_detector-pinctrl.dtsi"
 
 / {
-	model = "Pink Panda";
+	model = "Leak Detector";
 	compatible = "gervais,leak-detector";
 
 	chosen {
@@ -21,6 +21,11 @@
 		zephyr,flash = &flash0;
 		zephyr,code-partition = &slot0_partition;
 		zephyr,ieee802154 = &ieee802154;
+	};
+
+	buzzer {
+		compatible = "pwm-buzzer";
+		pwms = <&pwm0 0 PWM_USEC(250) PWM_POLARITY_NORMAL>;
 	};
 };
 
@@ -41,6 +46,13 @@
 &comp {
 	compatible = "nordic,nrf-lpcomp";
 	status = "okay";
+};
+
+&pwm0 {
+	status = "okay";
+	pinctrl-0 = <&pwm0_default>;
+	pinctrl-1 = <&pwm0_sleep>;
+	pinctrl-names = "default", "sleep";
 };
 
 /* Include flash partition table.
