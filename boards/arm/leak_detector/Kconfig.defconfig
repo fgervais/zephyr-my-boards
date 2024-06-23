@@ -15,6 +15,18 @@ config FLASH_LOAD_OFFSET
 	default 0x1000
 	depends on BOARD_HAS_NRF5_BOOTLOADER && (MCUBOOT || !USE_DT_CODE_PARTITION)
 
+config CONSOLE
+	default y
+
+config UART_CONSOLE
+	default CONSOLE
+
+config PWM
+	default y
+
+config NRFX_LPCOMP
+	default y
+
 if BOARD_SERIAL_BACKEND_CDC_ACM
 
 config USB_DEVICE_STACK
@@ -22,12 +34,6 @@ config USB_DEVICE_STACK
 
 config USB_CDC_ACM
 	default SERIAL
-
-config CONSOLE
-	default y
-
-config UART_CONSOLE
-	default CONSOLE
 
 config USB_DEVICE_INITIALIZE_AT_BOOT
 	default y if !MCUBOOT && CONSOLE
