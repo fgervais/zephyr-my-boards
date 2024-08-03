@@ -1,6 +1,10 @@
-# Pink Panda board configuration
+# Bitcraze Crazyradio 2.0 board configuration
 
-if BOARD_PINK_PANDA
+# Copyright (c) 2022 Bitcraze AB
+# Copyright (c) 2020 Nordic Semiconductor ASA
+# SPDX-License-Identifier: Apache-2.0
+
+if BOARD_BITCRAZE_CRAZYRADIO_2
 
 # To let the nRF5 bootloader load an application, the application
 # must be linked after Nordic MBR, that is factory-programmed on the board.
@@ -75,4 +79,4 @@ endif # BOARD_SERIAL_BACKEND_CDC_ACM
 config BT_CTLR
 	default BT
 
-endif # BOARD_PINK_PANDA
+endif # BOARD_BITCRAZE_CRAZYRADIO_2

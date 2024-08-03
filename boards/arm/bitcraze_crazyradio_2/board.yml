@@ -1,11 +1,7 @@
 board:
-  name: pink_panda
-  vendor: gervais
+  name: bitcraze_crazyradio_2
+  vendor: bitcraze
   socs:
   - name: nrf52840
   revision:
     format: major.minor.patch
-    default: "2.0.0"
-    revisions:
-    - name: "1.0.0"
-    - name: "2.0.0"

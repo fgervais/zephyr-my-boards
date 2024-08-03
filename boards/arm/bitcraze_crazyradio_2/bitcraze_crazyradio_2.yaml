@@ -1,5 +1,5 @@
-identifier: pink_panda
-name: Pink-Panda
+identifier: bitcraze_crazyradio_2
+name: Bitcraze Crazyradio 2.0
 type: mcu
 arch: arm
 ram: 256
