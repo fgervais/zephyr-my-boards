@@ -99,6 +99,8 @@
 
 &uicr {
 	gpio-as-nreset;
+
+	// We use NFC pins to interface with the FEM
 	nfct-pins-as-gpios;
 };
 
