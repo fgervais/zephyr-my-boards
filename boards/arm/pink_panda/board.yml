@@ -5,7 +5,8 @@ board:
   - name: nrf52840
   revision:
     format: major.minor.patch
-    default: "2.0.0"
+    default: "2.1.0"
     revisions:
     - name: "1.0.0"
     - name: "2.0.0"
+    - name: "2.1.0"
