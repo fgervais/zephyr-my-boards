@@ -12,11 +12,6 @@
 		zephyr,uart-mcumgr = &uart0;
 		zephyr,bt-mon-uart = &uart0;
 		zephyr,bt-c2h-uart = &uart0;
-		// zephyr,console = &cdc_acm_uart;
-		// zephyr,shell-uart = &cdc_acm_uart;
-		// zephyr,uart-mcumgr = &cdc_acm_uart;
-		// zephyr,bt-mon-uart = &cdc_acm_uart;
-		// zephyr,bt-c2h-uart = &cdc_acm_uart;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 		zephyr,code-partition = &slot0_partition;
@@ -46,12 +41,36 @@
 	pinctrl-names = "default", "sleep";
 };
 
-/* Include flash partition table.
- * Two partition tables are available:
- * fstab-stock		-compatible with Nordic nRF5 bootloader, default
- * fstab-debugger	-to use an external debugger, w/o the nRF5 bootloader
- */
-#include "fstab-debugger.dts"
+&flash0 {
+	partitions {
+		compatible = "fixed-partitions";
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		/* The size of this partition ensures that MCUBoot can be built
+		 * with an RTT console, CDC ACM support, and w/o optimizations.
+		 */
+		boot_partition: partition@0 {
+			label = "mcuboot";
+			reg = <0x00000000 0x00012000>;
+		};
+
+		slot0_partition: partition@12000 {
+			label = "image-0";
+			reg = <0x00012000 0x00075000>;
+		};
+
+		slot1_partition: partition@87000 {
+			label = "image-1";
+			reg = <0x00087000 0x00075000>;
+		};
+
+		storage_partition: partition@fc000 {
+			label = "storage";
+			reg = <0x000fc000 0x00004000>;
+		};
+	};
+};
 
 zephyr_udc0: &usbd {
 	compatible = "nordic,nrf-usbd";
