@@ -1,5 +1,6 @@
 board:
   name: pink_panda
+  full_name: Pink Panda
   vendor: gervais
   socs:
   - name: nrf52840
